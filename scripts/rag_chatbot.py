@@ -2,19 +2,19 @@ from src.rag import ask
 
 
 def main():
-    """Lance le chatbot RAG."""
+    """Lance le chatbot RAG en mode interactif."""
 
-    print("=" * 40)
+    print("\n====================================")
     print(" Chatbot RAG - Métropole de Lyon")
     print(" Tape 'quit' pour quitter.")
-    print("=" * 40)
+    print("====================================")
 
     while True:
 
         # Saisie de la question
         question = input("\nVotre question : ")
 
-        # Quitter le chatbot
+        # Quitter le programme
         if question.lower() in ["quit", "exit", "q"]:
             print("\nAu revoir !")
             break

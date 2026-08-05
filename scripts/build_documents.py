@@ -63,7 +63,7 @@ def main():
     print(f"{len(documents)} documents créés.\n")
 
     print("Premier document :\n")
-    print(documents[0])
+    print(documents[0]) 
 
 
 if __name__ == "__main__":
