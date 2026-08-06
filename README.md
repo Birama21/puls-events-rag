@@ -6,7 +6,7 @@ Le projet utilise **LangChain**, **FAISS**, **Hugging Face**, **Mistral AI** et 
 
 ---
 
-# Objectifs du projet
+# Objectifs du projet 
 
 Ce projet a été réalisé dans le cadre de la formation **AI Engineer - OpenClassrooms**.
 
@@ -22,7 +22,7 @@ L'objectif est de développer un système RAG complet permettant de :
 
 ---
 
-# Fonctionnalités
+# Fonctionnalité
 
 - Prétraitement des données
 - Construction d'un index vectoriel FAISS
