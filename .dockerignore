@@ -1,0 +1,34 @@
+# Environnement virtuel
+.venv/
+
+# Git
+.git/
+.gitignore
+
+# Cache Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Cache Ruff
+.ruff_cache/
+
+# Cache MyPy
+.mypy_cache/
+
+# Cache VS Code
+.vscode/
+
+# Documentation
+docs/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Couverture de tests
+.coverage
+htmlcov/
+
+# Logs
+*.log
