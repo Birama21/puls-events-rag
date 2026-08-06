@@ -31,4 +31,6 @@ jobs:
         run: uv sync
 
       - name: Exécution des tests avec couverture
+        env:
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
         run: uv run python -m pytest --cov=src --cov=api --cov-report=term-missing

@@ -42,14 +42,15 @@ def load_mistral():
 
         print("Connexion à Mistral...")
 
+        # Charge le fichier .env en local (sans écraser les variables d'environnement)
         load_dotenv()
 
         api_key = os.getenv("MISTRAL_API_KEY")
 
         if not api_key:
             raise ValueError(
-                "MISTRAL_API_KEY introuvable dans le fichier .env"
-            )
+                "MISTRAL_API_KEY introuvable dans les variables d'environnement."
+    )
 
         client = Mistral(api_key=api_key)
 
