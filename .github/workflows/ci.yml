@@ -32,5 +32,5 @@ jobs:
       - name: Installation des dépendances
         run: uv sync
 
-      - name: Exécution des tests
-        run: uv run python -m pytest
+      - name: Exécution des tests avec couverture
+        run: uv run python -m pytest --cov=src --cov=api --cov-report=term-missing
