@@ -22,7 +22,7 @@ L'objectif est de développer un système RAG complet permettant de :
 
 ---
 
-# Fonctionnalités
+# Fonctionnalités1
 
 - Prétraitement des données
 - Construction d'un index vectoriel FAISS
