@@ -10,7 +10,7 @@ def main():
         "Je cherche une activité pour les enfants",
         "Quels événements ont lieu à Villeurbanne ?",
         "Qui est Napoléon ?",
-    ]
+    ] 
 
     for i, question in enumerate(questions, start=1):
 

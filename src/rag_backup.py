@@ -1,19 +1,14 @@
 import os
 
 from dotenv import load_dotenv
-
 from langchain_community.vectorstores import FAISS
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_mistralai import ChatMistralAI
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.runnables import RunnablePassthrough
+from mistralai.client import Mistral
 
 
-# Base vectorielle chargée une seule fois
+# Variables globales pour éviter de recharger FAISS et Mistral
 vectorstore = None
-
-# Chaîne RAG chargée une seule fois
-rag_chain = None
+client = None
 
 
 def load_vectorstore():
@@ -38,12 +33,44 @@ def load_vectorstore():
     return vectorstore
 
 
-def format_docs(docs):
-    """Transforme les documents récupérés en contexte texte."""
+def load_mistral():
+    """Charge le client Mistral une seule fois."""
+
+    global client
+
+    if client is None:
+
+        print("Connexion à Mistral...")
+
+        # Charge le fichier .env en local (sans écraser les variables d'environnement)
+        load_dotenv()
+
+        api_key = os.getenv("MISTRAL_API_KEY")
+
+        if not api_key:
+            raise ValueError(
+                "MISTRAL_API_KEY introuvable dans les variables d'environnement."
+    )
+
+        client = Mistral(api_key=api_key)
+
+    return client
+
+
+def retrieve_context(question):
+    """Recherche les événements les plus pertinents."""
+
+    vectorstore = load_vectorstore()
+
+    docs = vectorstore.similarity_search(
+        question,
+        k=5,
+    )
 
     context = ""
 
     for i, doc in enumerate(docs, start=1):
+
         context += f"\n===== ÉVÉNEMENT {i} =====\n"
         context += doc.page_content
         context += "\n"
@@ -51,23 +78,12 @@ def format_docs(docs):
     return context
 
 
-def create_rag_chain():
-    """Construit la chaîne RAG orchestrée par LangChain."""
+def generate_answer(question, context):
+    """Génère une réponse avec Mistral."""
 
-    global rag_chain
+    client = load_mistral()
 
-    if rag_chain is None:
-
-        vectorstore = load_vectorstore()
-
-        # Retriever LangChain à partir de FAISS
-        retriever = vectorstore.as_retriever(
-            search_kwargs={"k": 5}
-        )
-
-        # Prompt utilisé par le modèle
-        prompt = ChatPromptTemplate.from_template(
-            """
+    prompt = f"""
 Tu es un assistant spécialisé dans les événements culturels de la Métropole de Lyon.
 
 Tu dois répondre uniquement à partir du contexte fourni.
@@ -93,34 +109,18 @@ Question :
 
 {question}
 """
-        )
 
-        # Client Mistral géré par LangChain
-        load_dotenv()
-
-        api_key = os.getenv("MISTRAL_API_KEY")
-
-        if not api_key:
-            raise ValueError(
-                "MISTRAL_API_KEY introuvable dans les variables d'environnement."
-            )
-
-        llm = ChatMistralAI(
-            model="mistral-small-latest",
-            api_key=api_key,
-        )
-
-        # Orchestration complète du RAG par LangChain
-        rag_chain = (
+    response = client.chat.complete(
+        model="mistral-small-latest",
+        messages=[
             {
-                "context": retriever | format_docs,
-                "question": RunnablePassthrough(),
+                "role": "user",
+                "content": prompt,
             }
-            | prompt
-            | llm
-        )
+        ],
+    )
 
-    return rag_chain
+    return response.choices[0].message.content
 
 
 def ask(question):
@@ -134,8 +134,11 @@ def ask(question):
         réponse (str)
     """
 
-    chain = create_rag_chain()
+    context = retrieve_context(question)
 
-    response = chain.invoke(question)
+    answer = generate_answer(
+        question,
+        context,
+    )
 
-    return response.content
+    return answer
