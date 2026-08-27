@@ -1,0 +1,131 @@
+[
+  {
+    "id": 1,
+    "question": "Quels événements autour de l'art sont proposés à Lyon ?",
+    "expected_answer": "Parmi les événements artistiques proposés à Lyon figurent notamment « Exposition « vibrations phéniciennes » », « Six œuvres évanescentes et zénifiantes signées Guillaume Bottazzi » et « Donne des couleurs à ton quartier de la Confluence à Lyon (œuvre participative et artistique) ».",
+    "expected_context": [
+      "Exposition « vibrations phéniciennes »",
+      "Six œuvres évanescentes et zénifiantes signées Guillaume Bottazzi",
+      "Donne des couleurs à ton quartier de la Confluence à Lyon (œuvre participative et artistique)"
+    ]
+  },
+  {
+    "id": 2,
+    "question": "Je cherche une exposition à Lyon.",
+    "expected_answer": "Une exposition disponible à Lyon est « Exposition « vibrations phéniciennes » », présentée à l'Institut Français de Civilisation Musulmane.",
+    "expected_context": [
+      "Exposition « vibrations phéniciennes » — Institut Français de Civilisation Musulmane — Lyon"
+    ]
+  },
+  {
+    "id": 3,
+    "question": "Quels événements sont prévus à Villeurbanne ?",
+    "expected_answer": "Parmi les événements à Villeurbanne figurent notamment « Étrange diptyque signé Guillaume Bottazzi sur le patrimoine historique des Gratte-Ciel de Villeurbanne » et « La peine de l'eau est infinie ».",
+    "expected_context": [
+      "Étrange diptyque signé Guillaume Bottazzi sur le patrimoine historique des Gratte-Ciel de Villeurbanne",
+      "La peine de l'eau est infinie"
+    ]
+  },
+  {
+    "id": 4,
+    "question": "Je cherche une activité pour les enfants.",
+    "expected_answer": "Le fichier contient notamment « La grande marraine », un conte jonglé tout public à partir de 6 ans, ainsi que « Polaris », un récit ludique et pédagogique au Planétarium de Vaulx-en-Velin.",
+    "expected_context": [
+      "La grande marraine",
+      "Séance Polaris (Les séances du Planétarium)"
+    ]
+  },
+  {
+    "id": 5,
+    "question": "Y a-t-il un événement sur le cinéma ?",
+    "expected_answer": "Oui. « Visite du cinéma Bellecombe » propose de découvrir les coulisses du cinéma, notamment la salle, la cabine de caisse et la cabine de projection, avec une projection de courts métrages.",
+    "expected_context": [
+      "Visite du cinéma Bellecombe"
+    ]
+  },
+  {
+    "id": 6,
+    "question": "Quels événements ont lieu le 19 septembre 2026 à Lyon ?",
+    "expected_answer": "Plusieurs événements sont prévus à Lyon le 19 septembre 2026, notamment la visite guidée du Théâtre de la Croix-Rousse, la visite de l'église Saint-Nizier, la visite de l'Auditorium-Orchestre national de Lyon et la visite du cinéma Bellecombe.",
+    "expected_context": [
+      "Visite guidée du Théâtre de la Croix-Rousse",
+      "Visite libre de l'église Saint-Nizier",
+      "Dans les coulisses de l’Auditorium-Orchestre national de Lyon_visites commentées",
+      "Visite du cinéma Bellecombe"
+    ]
+  },
+  {
+    "id": 7,
+    "question": "Je voudrais visiter le patrimoine du Vieux Lyon.",
+    "expected_answer": "Une possibilité est « Le Vieux Lyon secret: entre Renaissance et 18ème siècle », une visite guidée qui permet de découvrir des lieux cachés, des traboules et des cours intérieures.",
+    "expected_context": [
+      "Le Vieux Lyon secret: entre Renaissance et 18ème siècle, suivez votre guide costumée et redécouvrez des lieux cachés"
+    ]
+  },
+  {
+    "id": 8,
+    "question": "Existe-t-il une activité autour de l'astronomie ?",
+    "expected_answer": "Oui. « Visite de l'observatoire » au Planétarium de Vaulx-en-Velin permet notamment de découvrir la coupole, le grand télescope et différents instruments astronomiques.",
+    "expected_context": [
+      "Visite de l'observatoire",
+      "Séance Polaris (Les séances du Planétarium)"
+    ]
+  },
+  {
+    "id": 9,
+    "question": "Je cherche un événement musical à Lyon.",
+    "expected_answer": "Parmi les événements musicaux figurent notamment « Présentation de l'orgue Joseph Merklin » au Temple de la Lanterne et « Performances du club de danse Jewel'Cly - festival MUSIC'LY » à l'UCLy.",
+    "expected_context": [
+      "Présentation de l'orgue Joseph Merklin",
+      "Performances du club de danse Jewel'Cly - festival MUSIC'LY"
+    ]
+  },
+  {
+    "id": 10,
+    "question": "Je cherche une visite historique à Oullins.",
+    "expected_answer": "« Visite guidée : Premiers pas dans l'histoire d'Oullins » permet de découvrir le centre historique d'Oullins, entre château de la Renaissance et histoire ferroviaire.",
+    "expected_context": [
+      "Visite guidée : Premiers pas dans l'histoire d'Oullins"
+    ]
+  },
+  {
+    "id": 11,
+    "question": "Y a-t-il une activité artistique participative à la Confluence ?",
+    "expected_answer": "Oui. « Donne des couleurs à ton quartier de la Confluence à Lyon » est une œuvre artistique et participative organisée le 19 septembre, avec des ateliers gratuits ouverts à toutes et tous dès 8 ans.",
+    "expected_context": [
+      "Donne des couleurs à ton quartier de la Confluence à Lyon (œuvre participative et artistique)"
+    ]
+  },
+  {
+    "id": 12,
+    "question": "Je cherche une activité autour de l'histoire de la médecine.",
+    "expected_answer": "« Balade guidée - Les hauts lieux de la médecine lyonnaise » propose de découvrir l'histoire des lieux et des grandes figures liées à l'évolution des pratiques de soins à Lyon.",
+    "expected_context": [
+      "Balade guidée - Les hauts lieux de la médecine lyonnaise"
+    ]
+  },
+  {
+    "id": 13,
+    "question": "Existe-t-il une visite liée à la soierie lyonnaise ?",
+    "expected_answer": "Oui. « VISITE ATELIER DE SOIERIE LYONNAISE » permet de visiter l'atelier familial de tissage à bras de Georges Mattelon et d'assister à une démonstration de tissage.",
+    "expected_context": [
+      "VISITE ATELIER DE SOIERIE LYONNAISE"
+    ]
+  },
+  {
+    "id": 14,
+    "question": "Je cherche une activité autour de l'histoire du patrimoine à Lyon.",
+    "expected_answer": "Plusieurs événements correspondent, notamment « Patrimoine en péril », « Visite libre du trésor de la Cathédrale de Lyon » et « SUBS-VISITE (une visite historique des Subsistances) ».",
+    "expected_context": [
+      "Patrimoine en péril",
+      "Visite libre du trésor de la Cathédrale de Lyon",
+      "SUBS-VISITE (une visite historique des Subsistances)"
+    ]
+  },
+  {
+    "id": 15,
+    "question": "Qui est Napoléon ?",
+    "expected_answer": "Je n'ai trouvé aucun événement correspondant à votre demande dans la base de données.",
+    "expected_context": []
+  }
+]

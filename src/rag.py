@@ -38,6 +38,31 @@ def load_vectorstore():
     return vectorstore
 
 
+def get_retriever():
+    """Retourne le retriever FAISS utilisé par le RAG."""
+
+    vectorstore = load_vectorstore()
+
+    return vectorstore.as_retriever(
+        search_kwargs={"k": 5}
+    )
+
+
+def retrieve_context(question):
+    """
+    Récupère les vrais documents utilisés par le retriever.
+
+    Cette fonction est utilisée par DeepEval pour évaluer
+    la pertinence du contexte récupéré.
+    """
+
+    retriever = get_retriever()
+
+    docs = retriever.invoke(question)
+
+    return [doc.page_content for doc in docs]
+
+
 def format_docs(docs):
     """Transforme les documents récupérés en contexte texte."""
 
@@ -58,12 +83,7 @@ def create_rag_chain():
 
     if rag_chain is None:
 
-        vectorstore = load_vectorstore()
-
-        # Retriever LangChain à partir de FAISS
-        retriever = vectorstore.as_retriever(
-            search_kwargs={"k": 5}
-        )
+        retriever = get_retriever()
 
         # Prompt utilisé par le modèle
         prompt = ChatPromptTemplate.from_template(
